@@ -1,6 +1,5 @@
 import 'dart:async';
-
-import 'package:covidTracker/pages/home.dart';
+import 'package:covidTracker/pages/nav.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,14 +18,14 @@ class _SplashScreenState extends State<SplashScreen> {
     var duration = const Duration(seconds: 5);
     return Timer(duration, () {
       Navigator.of(context).pushReplacement(new MaterialPageRoute(builder: (_) {
-        return new HomeScreen();
+        return LandingPage();
       }));
     });
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xff63caac),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

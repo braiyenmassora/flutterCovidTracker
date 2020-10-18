@@ -1,4 +1,4 @@
-# covidTracker
+# covidTracker by Braiyen Massora
 
 A new Flutter project.
 
