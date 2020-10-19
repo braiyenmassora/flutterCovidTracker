@@ -152,7 +152,7 @@ class _HomeState extends State<Home> {
               Container(
                 margin: EdgeInsets.only(top: 10, left: 20),
                 child: Text(
-                  "Last Updated on ..........................",
+                  "Last Updated on Loading.......",
                   style: TextStyle(
                     color: Colors.black,
                   ),
@@ -163,7 +163,7 @@ class _HomeState extends State<Home> {
           Column(
             children: [
               Container(
-                margin: EdgeInsets.only(top: 280),
+                margin: EdgeInsets.only(top: 265),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -290,29 +290,72 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-            ],
-          ),
-          Align(
-            alignment: Alignment(0, 0.90),
-            child: Container(
-              width: 200,
-              height: 50,
-              child: RaisedButton(
-                color: Color(0xff63caac),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                onPressed: () {},
-                child: Text(
-                  "Update Data",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.0,
-                      fontFamily: 'NeoSans'),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.white),
+                      height: 100,
+                      width: 150,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                              child: Text(
+                            "Papua",
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          )),
+                          Container(
+                              margin: EdgeInsets.only(top: 15),
+                              child: Text(
+                                "400",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
+                              ))
+                        ],
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.white),
+                      height: 100,
+                      width: 150,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                              child: Text(
+                            "Bali",
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          )),
+                          Container(
+                              margin: EdgeInsets.only(top: 15),
+                              child: Text(
+                                "131",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
+                              ))
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-          )
+            ],
+          ),
         ],
       ),
     );
