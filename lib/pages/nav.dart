@@ -10,7 +10,11 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
   int _bottomNavCurrentIndex = 0;
-  List<Widget> _container = [new Home(), Emergency(), Maps()];
+  List<Widget> _container = [
+    Home(),
+    Maps(),
+    Emergency(),
+  ];
 
   void _onTappedItem(int index) {
     setState(() {
@@ -34,16 +38,16 @@ class _LandingPageState extends State<LandingPage> {
               label: "Home"),
           BottomNavigationBarItem(
               icon: Icon(
+                Icons.map_outlined,
+                color: Color(0xff63caac),
+              ),
+              label: "Maps"),
+          BottomNavigationBarItem(
+              icon: Icon(
                 Icons.call,
                 color: Color(0xff63caac),
               ),
               label: "Emergency"),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.map,
-                color: Color(0xff63caac),
-              ),
-              label: "Map"),
         ],
         currentIndex: _bottomNavCurrentIndex,
         selectedItemColor: Colors.black,
