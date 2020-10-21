@@ -1,4 +1,4 @@
-import 'package:covidTracker/pages/emer.dart';
+import 'package:covidTracker/pages/report.dart';
 import 'package:covidTracker/pages/maps.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
@@ -12,8 +12,8 @@ class _LandingPageState extends State<LandingPage> {
   int _bottomNavCurrentIndex = 0;
   List<Widget> _container = [
     Home(),
-    Maps(),
     Emergency(),
+    Maps(),
   ];
 
   void _onTappedItem(int index) {
@@ -29,28 +29,31 @@ class _LandingPageState extends State<LandingPage> {
         child: _container.elementAt(_bottomNavCurrentIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         items: [
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: Color(0xff63caac),
-              ),
-              label: "Home"),
+            icon: Icon(
+              Icons.home,
+              color: Colors.black,
+            ),
+            label: "Home",
+          ),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.map_outlined,
-                color: Color(0xff63caac),
+                Icons.report,
+                color: Colors.black,
+              ),
+              label: "Report"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.map,
+                color: Colors.black,
               ),
               label: "Maps"),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.call,
-                color: Color(0xff63caac),
-              ),
-              label: "Emergency"),
         ],
         currentIndex: _bottomNavCurrentIndex,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Color(0xff9B81ED),
+        unselectedItemColor: Colors.black,
         onTap: _onTappedItem,
       ),
     );

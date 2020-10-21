@@ -16,6 +16,8 @@ class _GeoLocationState extends State<GeoLocation> {
 
   Position _currentPositon;
 
+  String searchAddr;
+
   _getCurrentLocation() async {
     _geolocator
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.high)
@@ -47,6 +49,10 @@ class _GeoLocationState extends State<GeoLocation> {
       height: height,
       width: width,
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("Find Hospital"),
+          backgroundColor: Color(0xff9B81ED),
+        ),
         body: Stack(
           children: [
             GoogleMap(
@@ -57,6 +63,36 @@ class _GeoLocationState extends State<GeoLocation> {
               onMapCreated: (GoogleMapController controler) {
                 mapController = controler;
               },
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 15, left: 20, right: 20),
+              height: 50,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10), color: Colors.white),
+              child: TextField(
+                decoration: InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white)),
+                    hintText: 'Find Hospital ',
+                    hintStyle: TextStyle(color: Colors.black),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 15, top: 15),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        Icons.search,
+                        color: Colors.black,
+                      ),
+                      onPressed: () {
+                        searchLocation();
+                      },
+                      iconSize: 30,
+                    )),
+                onChanged: (val) {
+                  setState(() {
+                    searchAddr = val;
+                  });
+                },
+              ),
             ),
             Container(
               margin: EdgeInsets.all(20),
@@ -71,7 +107,7 @@ class _GeoLocationState extends State<GeoLocation> {
                         height: 56,
                         child: Icon(
                           Icons.my_location,
-                          color: Color(0xff63caac),
+                          color: Color(0xff9B81ED),
                         ),
                       ),
                       onTap: () {
@@ -86,5 +122,17 @@ class _GeoLocationState extends State<GeoLocation> {
         ),
       ),
     );
+  }
+
+  // serach location
+
+  searchLocation() {
+    Geolocator().placemarkFromAddress(searchAddr).then((result) => {
+          mapController.animateCamera(CameraUpdate.newCameraPosition(
+              CameraPosition(
+                  target: LatLng(result[0].position.latitude,
+                      result[0].position.longitude),
+                  zoom: 16.0)))
+        });
   }
 }

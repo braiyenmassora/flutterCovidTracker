@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   startHome() async {
-    var duration = const Duration(seconds: 3);
+    var duration = const Duration(seconds: 5);
     return Timer(duration, () {
       Navigator.of(context).pushReplacement(new MaterialPageRoute(builder: (_) {
         return LandingPage();
@@ -26,30 +26,24 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Color(0xff63caac),
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xff9B81ED),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Image.asset(
-          //   "images/covid.png",
-          // ),
-          // SizedBox(
-          //   height: 20.0,
-          // ),
           Text(
             "COVID",
             style: TextStyle(
-              color: Color(0xff63caac),
-              fontSize: 35.0,
+              color: Colors.white,
+              fontSize: 30.0,
               fontWeight: FontWeight.bold,
             ),
           ),
           Text(
             "Tracker",
             style: TextStyle(
-              color: Color(0xff63caac),
-              fontSize: 25.0,
+              color: Colors.black,
+              fontSize: 20.0,
             ),
           ),
         ],
